@@ -1,1 +1,6 @@
-this is a new line
+task 1 : operating natstat using pythOn
+            figure out out to output it and how to deal with the output
+task 2 : understanding which parameter I shoukd look for, which are local servers and which are services (ports)
+task 3 : TBD watch related videos, similar projects made
+
+#what is socket, how to use, how can it serve me
