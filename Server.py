@@ -3,17 +3,17 @@ import threading  as trd
 
 sock = sok.socket(sok.AF_INET,sok.SOCK_STREAM)
 
-HOST = ('0.0.0.0', 10000)
+sock.bind (('0.0.0.0', 10000))
 
 sock.listen(1)
 connections = []
 def handle_connections(c, a):
+    global connections
     while True:
-        global connections
         data = c.recv(1024)
         for connection in connections:
             connection.send(bytes(data))
-        if not data:
+        if not data or data == ('bye'):
             connections.remove(c)
             c.close()
             break

@@ -1,12 +1,12 @@
-import socket as S
+import tempfile
+import os
+import time 
 
-my_name = S.gethostname()
-my_ip = S.gethostbyname(my_name)
 
-sock = S.socket(S.AF_INET, S.SOCK_STREAM)
-result = sock.connect_ex((my_ip,80))
-if result == 0:
-    print ("Port is open")
-else:
-    print ("Port is not open")
-sock.close()
+tmp_file = tempfile.NamedTemporaryFile()
+os.system( 'netstat > %s' % tmp_file.name)
+print(tmp_file.name) #file location
+print(tempfile.gettempdir())
+tmp_file.seek(0)
+time.sleep(60)
+tmp_file.close()
